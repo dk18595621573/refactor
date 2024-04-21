@@ -35,14 +35,12 @@ public class Customer {
     /**
      * 执行逻辑
      */
-    public void statement() {
-
+    public String statement() {
+        StringBuilder sb = new StringBuilder("出租人:").append(getName()).append("\n");
         // 总金额
         double totalAmount = 0;
         // 常客积分
         int frequentRenterPoints = 0;
-
-        log.info("出租人:{}", getName());
 
         // 循环
         for (Rental each : rentals) {
@@ -78,12 +76,12 @@ public class Customer {
             }
 
             // 打印借贷记录
-            log.info("租赁名称:{}, 租赁金额:{}", each.getMovie().getTitle(), thisAmount);
-
+            sb.append("租赁名称:").append(each.getMovie().getTitle()).append(", 租赁金额:").append(thisAmount).append("\n");
             totalAmount += thisAmount;
         }
-        log.info("欠金额:{}", totalAmount);
-        log.info("客户积分增加:{} 积分", frequentRenterPoints);
+        sb.append("欠金额:").append(totalAmount);
+        sb.append("客户积分增加:").append(frequentRenterPoints).append("积分");
+        return sb.toString();
     }
 
 }

@@ -33,20 +33,23 @@ public class Customer {
     }
 
     /**
-     * 执行逻辑
+     * 打印客户信息
+     * @return 组装数据
      */
-    public void statement() {
+    public String printStatement() {
+        StringBuilder sb = new StringBuilder("出租人:").append(getName()).append("\n");
+        rentals.forEach(each -> sb.append("租赁名称:").append(each.getMovie().getTitle()).append(", 租赁金额:").append(each.getCharge()).append("\n"));
+        sb.append("欠金额:").append(this.getTotalCharge());
+        sb.append("客户积分增加:").append(this.getTotalFrequentRenterPoints()).append("积分");
+        return sb.toString();
+    }
 
-        log.info("出租人:{}", getName());
-
-        // 循环
-        for (Rental each : rentals) {
-            // 打印借贷记录
-            log.info("租赁名称:{}, 租赁金额:{}", each.getMovie().getTitle(), each.getCharge());
-        }
-
-        log.info("欠金额:{}", this.getTotalCharge());
-        log.info("客户积分增加:{} 积分", this.getTotalFrequentRenterPoints());
+    public String htmlStatement(){
+        StringBuilder sb = new StringBuilder("<H1>出租人:<EM>").append(getName()).append("</EM></H1>\n");
+        rentals.forEach(each -> sb.append("<H2>租赁名称:<EM>").append(each.getMovie().getTitle()).append("</EM>, 租赁金额:<EM>").append(each.getCharge()).append("</EM></H2>\n"));
+        sb.append("<P>欠金额:").append(this.getTotalCharge()).append("</P>\n");
+        sb.append("客户积分增加:<EM>").append(this.getTotalFrequentRenterPoints()).append("<EM>积分");
+        return sb.toString();
     }
 
     /**
