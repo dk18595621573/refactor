@@ -18,5 +18,6 @@ public class RentalTest {
         customer.addRental(new Rental(new Movie("大明王朝", Movie.CHILDRENS), 1));
         customer.addRental(new Rental(new Movie("仙剑奇侠传", Movie.NEW_RELEASE), 4));
         customer.statement();
+        System.out.println("结束.....");
     }
 }
