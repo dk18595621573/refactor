@@ -1,8 +1,8 @@
-package rental;
+package rental.v2;
 
-import org.example.rental.v1.model.Customer;
-import org.example.rental.v1.model.Movie;
-import org.example.rental.v1.model.Rental;
+import org.example.rental.v2.Customer;
+import org.example.rental.v2.Movie;
+import org.example.rental.v2.Rental;
 
 /**
  * 测试.
