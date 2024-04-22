@@ -31,4 +31,8 @@ B. UML图
 1. 将`Rental.getCharge()`和`Rental.getTotalFrequentRenterPoints()`方法移动到`Movie.class`内.
    1. 里面计算涉及到了租期(`daysRented`)变量,需要将`daysRented`传入.
    2. 移动之后两个方法:`Movie.getCharge(int daysRented)`和`Movie.getFrequentRenterPoints(int daysRented)`
-#### 动态
+#### 多态
+> 影片类型是根据价格类型(代号)进行转换的.受价格的影响,新片可以转换为普通片,所以引入`State设计模式`,将价格进行抽象.
+- 分别抽象为:普通片价格,儿童片价格,新片价格类.
+- 这样进行抽象可以更好的扩展
+
